@@ -1,10 +1,10 @@
 <template>
     <div>
-        OrderPay
+        order-footer
     </div>
 </template>
 <script>
 export default {
-    name:'order-pay'
+    name:'order-footer'
 }
 </script>
