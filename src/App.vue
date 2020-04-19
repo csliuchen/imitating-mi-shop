@@ -5,12 +5,17 @@
 </template>
 
 <script>
-//import axios from 'axios'
-// eslint-disable-next-line no-unused-vars
-import jsonp from 'jsonp'
+/* eslint-disable no-unused-vars */
+import storage from './storage/index.js'
 export default {
   name: 'App',
   components: {
+  },
+  mounted(){
+    //storage.setItem('userName',{A:1},'user')
+    storage.setItem('score',{gpa:3.2},'user');
+    //console.log(storage.getStorage()['user'])
+    //storage.clear('sex')
   }
 }
 </script>
