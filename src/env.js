@@ -1,7 +1,7 @@
 let baseURL;
 switch (process.env.NODE_ENV) { //这是 nodejs 的一个api
     case 'development':
-        baseURL = 'http://dev-mall-pre.springboot.cn/api';
+        baseURL = 'http://localhost:8081/api/';
         break;
     case 'test':
         baseURL = 'http://test-mall-pre.springboot.cn/api';
@@ -11,7 +11,7 @@ switch (process.env.NODE_ENV) { //这是 nodejs 的一个api
         break;
     
     default:
-        baseURL = 'http://mall-pre.springboot.cn/api';
+        baseURL = 'http://localhost:8081/api/#';
         break;
 }
 

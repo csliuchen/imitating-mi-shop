@@ -15,8 +15,12 @@ export default {
     //storage.setItem("score", { gpa: 3.2 }, "user");
     //console.log(storage.getStorage()['user'])
     //storage.clear('sex')
+    this.axios.get('/user/login').then((res)=>{
+      this.res = res;
+      //console.log(res);
+      });
   }
-};
+}
 </script>
 
 <style>
