@@ -12,7 +12,7 @@ export default {
   components: {},
   mounted() {
     //storage.setItem('userName',{A:1},'user')
-    storage.setItem("score", { gpa: 3.2 }, "user");
+    //storage.setItem("score", { gpa: 3.2 }, "user");
     //console.log(storage.getStorage()['user'])
     //storage.clear('sex')
   }
