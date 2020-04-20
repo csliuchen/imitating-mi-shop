@@ -6,18 +6,17 @@
 
 <script>
 /* eslint-disable no-unused-vars */
-import storage from './storage/index.js'
+import storage from "./storage/index.js";
 export default {
-  name: 'App',
-  components: {
-  },
-  mounted(){
+  name: "App",
+  components: {},
+  mounted() {
     //storage.setItem('userName',{A:1},'user')
-    storage.setItem('score',{gpa:3.2},'user');
+    storage.setItem("score", { gpa: 3.2 }, "user");
     //console.log(storage.getStorage()['user'])
     //storage.clear('sex')
   }
-}
+};
 </script>
 
 <style>
