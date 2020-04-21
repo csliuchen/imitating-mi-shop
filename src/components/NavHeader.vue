@@ -18,7 +18,32 @@
         </div>
       </div>
     </div>
-    <div class="nav-topbar"></div>
+    <div class="nav-header">
+      <div class="container">
+        <div class="header-logo">
+          <a href="/#/index"></a>
+        </div>
+        <div class="header-menu">
+          <div class="item-menu">
+            <span>小米手机</span>
+            <div class="children"></div>
+          </div>
+          <div class="header-menu">
+            <div class="item-menu">
+              <span>RedMi红米</span>
+              <div class="children"></div>
+            </div>
+            <div class="header-menu">
+              <div class="item-menu">
+                <span>电视</span>
+                <div class="children"></div>
+              </div>
+            </div>
+          </div>
+          <div class="header-search"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -27,6 +52,7 @@ export default {
 };
 </script>
 <style lang="scss">
+@import "./../assets/scss/base.scss";
 .header {
   .nav-topbar {
     height: 39px;
@@ -35,9 +61,6 @@ export default {
     color: #b0b0b0;
 
     .container {
-      width: 1226px;
-      margin-right: auto;
-      margin-left: auto; //左右都auto就能保证居中
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,6 +82,65 @@ export default {
           background: url("/imgs/icon-cart-checked.png") no-repeat center; //填充与居中，注意这里的路径，很迷惑为什么不用加public
           background-size: contain;
         }
+      }
+    }
+  }
+  .nav-header {
+    .container {
+      height: 112px;
+      display: flex;
+      justify-content: space-between;
+      //以上两行实现居中
+      .header-logo {
+        display: inline-block; //块级元素
+        width: 55px;
+        height: 55px;
+        background-color: #ff6600;
+        a {
+          display: inline-block;
+          width: 110px; //55px * 2 因为有两张图片
+          height: 55px;
+          &:before {
+            content: " "; //占位的，非常重要
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background: url("/imgs/mi-logo.png") no-repeat center;
+            background-size: 55px;
+            transition: margin 0.2s;
+          }
+          &:after {
+            content: " ";
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+            background: url("/imgs/mi-home.png") no-repeat center;
+            background-size: 55px;
+          }
+          &:hover:before {
+            margin-left: -55px;
+            transition: margin 0.2s; //css3
+          }
+        }
+      }
+      .header-menu{
+        display: inline-block;//行内块级元素
+        width:200px;
+        padding-left: 209px;
+        .item-menu{
+          display: inline-block;
+          color: #333333;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 112px;
+          span{
+            cursor: pointer;
+          }
+          & :hover{
+            
+          }
+        }
+
       }
     }
   }
