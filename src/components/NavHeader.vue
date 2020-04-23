@@ -28,19 +28,22 @@
             <span>小米手机</span>
             <div class="children"></div>
           </div>
-          <div class="header-menu">
-            <div class="item-menu">
-              <span>RedMi红米</span>
-              <div class="children"></div>
-            </div>
-            <div class="header-menu">
-              <div class="item-menu">
-                <span>电视</span>
-                <div class="children"></div>
-              </div>
-            </div>
+          <div class="item-menu">
+            <span>RedMi红米</span>
+            <div class="children"></div>
           </div>
-          <div class="header-search"></div>
+          <div class="item-menu">
+            <span>电视</span>
+            <div class="children"></div>
+          </div>
+          <!-- wrapper 是一个固定样式-->
+          <div class="wrapper"></div>
+        </div>
+        <div class="header-search">
+          <div class="wrapper">
+            <input type="text" name="keyword" />
+            <a href="javascript:"></a>
+          </div>
         </div>
       </div>
     </div>
@@ -90,6 +93,8 @@ export default {
       height: 112px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
       //以上两行实现居中
       .header-logo {
         display: inline-block; //块级元素
@@ -123,24 +128,48 @@ export default {
           }
         }
       }
-      .header-menu{
-        display: inline-block;//行内块级元素
-        width:200px;
+      .header-menu {
+        display: inline-block; //行内块级元素
+        width: 643px;
         padding-left: 209px;
-        .item-menu{
+        .item-menu {
           display: inline-block;
           color: #333333;
           font-weight: bold;
           font-size: 16px;
           line-height: 112px;
-          span{
+          margin-right: 20px;
+          span {
             cursor: pointer;
           }
-          & :hover{
-            
+          & :hover {
           }
         }
-
+      }
+      .header-search {
+        width: 319px;
+        .wrapper {
+          height: 50px;
+          border: 1px solid #e0e0e0;
+          display: flex;
+          align-items: center;
+          input {
+            border: none;
+            box-sizing: border-box; //不明觉厉，宽度就不包括padding值了
+            border-right: 1px solid #e0e0e0;
+            width: 264px;
+            height: 50px;
+            padding-left: 14px;
+          }
+          a {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: url("/imgs/icon-search.png");
+            background-size: contain;
+            margin-left: 17px;
+          }
+        }
       }
     }
   }
