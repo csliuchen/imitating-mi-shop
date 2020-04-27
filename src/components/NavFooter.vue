@@ -7,13 +7,13 @@
     <div class="footer-link">
       <a href>微博</a>
       <span>|</span>
-      <a href>微博</a>
+      <a href>微信</a>
       <span>|</span>
-      <a href>微博</a>
+      <a href>Twitter</a>
       <span>|</span>
-      <a href>微博</a>
+      <a href>instagram</a>
       <span>|</span>
-      <a href>微博</a>
+      <a href>gayhub</a>
       <span>|</span>
     </div>
     <div class="copyright">
