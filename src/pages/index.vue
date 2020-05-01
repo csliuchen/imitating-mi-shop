@@ -54,8 +54,16 @@
           <div class="swiper-button-next" slot="button-next"></div>
         </swiper>
       </div>
-      <div class="ads-box"></div>
-      <div class="banner"></div>
+      <div class="ads-box">
+        <a v-bind:href="'/#/product/'+item.id" v-for="(item,index) in adsList" v-bind:key="index">
+          <img v-bind:src="item.img" alt />
+        </a>
+      </div>
+      <div class="banner">
+        <a href="'/#/product/30'">
+          <img src="/imgs/banner-1.png" alt />
+        </a>
+      </div>
       <div class="product-box"></div>
     </div>
 
@@ -142,6 +150,24 @@ export default {
         [0, 0, 0, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0]
+      ],
+      adsList: [
+        {
+          id: 33,
+          img: "/imgs/ads/ads-1.png"
+        },
+        {
+          id: 48,
+          img: "/imgs/ads/ads-2.jpg"
+        },
+        {
+          id: 45,
+          img: "/imgs/ads/ads-3.png"
+        },
+        {
+          id: 47,
+          img: "/imgs/ads/ads-4.jpg"
+        }
       ]
     };
   }
@@ -229,6 +255,18 @@ export default {
         height: 100%;
       }
     }
+  }
+  .ads-box {
+    @include flex();
+    margin-top: 14px;
+    margin-bottom: 31px;
+    a {
+      width: 296px;
+      height: 167px;
+    }
+  }
+  .banner{
+    margin-bottom:50px;
   }
 }
 </style>
