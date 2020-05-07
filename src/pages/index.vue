@@ -65,38 +65,52 @@
         </a>
       </div>
     </div>
-      <div class="product-box">
-        <div class="container">
-          <h2>手机</h2>
-          <div class="wrapper">
-            <div class="banner-left">
-              <a href="/product/44">
-                <img src="/imgs/mix-alpha.jpg" alt />
-              </a>
-            </div>
-            <div class="list-box">
-              <div class="list" v-for="(arr,i) in phoneList" v-bind:key="i">
-                <div class="item" v-for="(item,j) in arr" v-bind:key="j">
-                  <span>新品</span>
-                  <div class="item-img">
-                    <img src='/imgs/item-box-1.png' alt />
-                  </div>
-                  <div class="item-info">
-                    <h3>小米19</h3>
-                    <p>小笼555，索尼300万像素马赛克摄像头</p>
-                    <p class="price">999元</p>
-                  </div>
+    <div class="product-box">
+      <div class="container">
+        <h2>手机</h2>
+        <div class="wrapper">
+          <div class="banner-left">
+            <a href="/product/44">
+              <img src="/imgs/mix-alpha.jpg" alt />
+            </a>
+          </div>
+          <div class="list-box">
+            <div class="list" v-for="(arr,i) in phoneList" v-bind:key="i">
+              <div class="item" v-for="(item,j) in arr" v-bind:key="j">
+                <span v-bind:class="{'new-pro':j%2==0}">新品</span>
+                <div class="item-img">
+                  <img v-bind:src="item.mainImage" alt />
+                </div>
+                <div class="item-info">
+                  <h3>{{item.name}}</h3>
+                  <p>{{item.subtitle}}</p>
+                  <p class="price" @click="addCart(item.id)">{{item.price}}元</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     <ServiceBar></ServiceBar>
+    <Modal
+      title="提示信息"
+      sureText="查看购物车"
+      btnType="3"
+      modalType="middle"
+      v-bind:showModal="showModal"
+      v-on:submit="goToCart"
+      v-on:cancel="showModal=false"
+    >
+      <template v-slot:body>
+        <p>商品添加成功</p>
+      </template>
+    </Modal>
   </div>
 </template>
 <script>
 import ServiceBar from "./../components/ServiceBar";
+import Modal from "./../components/Modal";
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 export default {
@@ -104,7 +118,8 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    ServiceBar
+    ServiceBar,
+    Modal
   },
   directives: {
     swiper: directive
@@ -194,11 +209,44 @@ export default {
           img: "/imgs/ads/ads-4.jpg"
         }
       ],
-      phoneList: [
-        [1, 1, 1, 1],
-        [1, 1, 1, 1]
-      ]
+      phoneList: [],
+      showModal: false
     };
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      this.axios
+        .get("/products", {
+          params: {
+            categoryId: 100012,
+            pageSize: 8
+          }
+        })
+        .then(res => {
+          //res.list = res.list.slice(0, 8);
+          console.log(res.list);
+          this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]; //slice不会改变原数组splite会
+        });
+    },
+    addCart() {
+      this.showModal = true;
+      return;
+      // this.axios
+      //   .post("/carts", {
+      //     productId: id,
+      //     selecteed: true
+      //   })
+      //   .then(() => {})
+      //   .catch(() => {
+      //     this.showModal = true;
+      //   });
+    },
+    goToCart() {
+      this.$router.push("/cart");
+    }
   }
 };
 </script>
@@ -331,10 +379,23 @@ export default {
             background-color: white;
             text-align: center;
             span {
+              display: inline-block;
+              width: 67px;
+              height: 24px;
+              font-size: 14px;
+              line-height: 24px;
+              color: white;
+              &.new-pro {
+                background-color: #7ecf68;
+              }
+              &.kill-pro {
+                background-color: #e82626;
+              }
             }
             .item-img {
               img {
                 height: 195px;
+                width: 100%;
               }
             }
             .item-info {
