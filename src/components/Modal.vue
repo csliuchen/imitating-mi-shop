@@ -11,12 +11,22 @@
           <slot name="body"></slot>
         </div>
         <div class="modal-footer">
-          <a href="javascript:;" class="btn" v-if="btnType==1" v-on:click="$emit('submit')">{{sureText}}</a>
-          <a href="javascript:;" class="btn" v-if="btnType==2" v-on:click="$emit('cancel')">{{cancelText}}</a>
+          <a
+            href="javascript:;"
+            class="btn"
+            v-if="btnType==1"
+            v-on:click="$emit('submit')"
+          >{{sureText}}</a>
+          <a
+            href="javascript:;"
+            class="btn"
+            v-if="btnType==2"
+            v-on:click="$emit('cancel')"
+          >{{cancelText}}</a>
 
           <div class="btn-group" v-if="btnType==3">
             <a href="javascript:;" class="btn" v-on:click="$emit('submit')">{{sureText}}</a>
-            <a href="javascript:;" class="btn"  v-on:click="$emit('cancel')">{{cancelText}}</a>
+            <a href="javascript:;" class="btn" v-on:click="$emit('cancel')">{{cancelText}}</a>
           </div>
         </div>
       </div>
@@ -66,7 +76,7 @@ export default {
     top: 0;
   }
   &.slide-leave-active {
-    top: 0;
+    top: -100%;
   }
     &.slide-enter {
     top: -100%;
@@ -92,9 +102,10 @@ export default {
           14px,
           "/imgs/icon-close.png"
         );
+        //transform: translate(-0%, -50%);
         transition: transform 0.3s;
         &:hover {
-          transform: scale(1.5);
+          transform: scale(2.5);
         }
       }
     }
