@@ -14,8 +14,17 @@ swiper
 vue-lazyload
 element-ui
 ```
+如果你对这个项目有兴趣，在安装 node 之后，记得先
+```
+$npm install
+```
+再输入以下命令来启动项目
+```
+$npm run serve
+```
 ## 👀项目预览
 ![homepage](https://tva1.sinaimg.cn/large/007S8ZIlgy1gewoa5gylpj31hc0u0kjl.jpg)
+
 ![homepage_gif](https://tva1.sinaimg.cn/large/007S8ZIlgy1gewokd9y9bg313l0ixnpe.gif)
 
 ## 👨🏻‍🎓学习进度
