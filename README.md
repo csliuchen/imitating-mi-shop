@@ -15,8 +15,8 @@ vue-lazyload
 element-ui
 ```
 ## 👀项目预览
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gewoa5gylpj31hc0u0kjl.jpg)
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gewokd9y9bg313l0ixnpe.gif)
+![homepage](https://tva1.sinaimg.cn/large/007S8ZIlgy1gewoa5gylpj31hc0u0kjl.jpg)
+![homepage_gif](https://tva1.sinaimg.cn/large/007S8ZIlgy1gewokd9y9bg313l0ixnpe.gif)
 
 ## 👨🏻‍🎓学习进度
 ### 基础知识
